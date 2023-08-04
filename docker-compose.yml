@@ -1,7 +1,7 @@
 version: '3'
 services:
   food_app:
-    build: .
+    build: BuberDinner/
     container_name: food_api
     hostname: food_api
     ports:
@@ -15,7 +15,7 @@ services:
       - food
     restart: unless-stopped
     volumes:
-      - /home/ubuntu/d/server-media/data/uploads/:/app/Images/
+      - /home/sina/Documents/public
 networks:
   food:
     external: true
