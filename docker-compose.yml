@@ -1,0 +1,21 @@
+version: '3'
+services:
+  food_app:
+    build: .
+    container_name: food_api
+    hostname: food_api
+    ports:
+     - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+#      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+#      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    networks:
+      - food
+    restart: unless-stopped
+    volumes:
+      - /home/ubuntu/d/server-media/data/uploads/:/app/Images/
+networks:
+  food:
+    external: true
